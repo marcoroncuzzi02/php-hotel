@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>hotels</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-
+<body class="container">
+    <!-- elenco hotels -->
     <?php
 
         $hotels = [
@@ -50,17 +51,30 @@
         ];
     ?>
 
-        <h1>HOTELS</h1>
+        <h1 class="text-center">HOTELS</h1>
 
-    <?php
+        <div class="card m-3">
+            <?php
+                foreach ($hotels as $hotel) {
+                    echo "<div class='card m-3 p-3'>";
+        
+                    foreach ($hotel as $chiave => $valore) {
+                        // Gestione del valore booleano per il parcheggio
+                        if ($chiave === 'parking') {
+                            $valore = $valore ? 'Sì' : 'No';
+                        }
 
-        foreach ($hotels as $hotel) {
+                        echo "
+                            <div>
+                                <span class='fw-bold'>" . ucfirst($chiave) . ":</span> 
+                                <span>$valore</span>
+                            </div>
+                        ";
+                    }
 
-            foreach ($hotel as $chiave => $valore){
-                echo $chiave . ": $valore <br>";
-            };
-            echo "<br>";
-        }
-    ?>
+                    echo "</div>"; // chiude la card
+                }
+            ?>
+        </div>
 </body>
 </html>
