@@ -6,9 +6,10 @@
     <title>hotels</title>
 </head>
 <body>
+
     <?php
 
-    $hotels = [
+        $hotels = [
 
         [
             'name' => 'Hotel Belvedere',
@@ -46,8 +47,20 @@
             'distance_to_center' => 50
         ],
 
-    ];
+        ];
+    ?>
 
-?>
+        <h1>HOTELS</h1>
+
+    <?php
+
+        foreach ($hotels as $hotel) {
+
+            foreach ($hotel as $chiave => $valore){
+                echo $chiave . ": $valore <br>";
+            };
+            echo "<br>";
+        }
+    ?>
 </body>
 </html>
